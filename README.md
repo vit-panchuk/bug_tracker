@@ -21,6 +21,7 @@ Manager should login (`/login`). There are two records in database for managers:
 1.
   - login: `foo`
   - password: `bar`
+
 2.
   - login: `bar`
   - password: `foo`
