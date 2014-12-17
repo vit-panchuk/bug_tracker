@@ -1,0 +1,46 @@
+%h1 Listing tickets
+
+-if session[:manager_id] && !@search
+  = form_tag tickets_path, method: 'get', class: 'stats' do
+    = select_tag 'stats', options_for_select(Ticket::STAFF_STATS.values), onchange: 'this.form.submit()', include_blank: true
+    = submit_tag 'submit'
+    = javascript_tag "$('.stats input').hide()"
+
+-if session[:manager_id]
+  .search
+    = form_tag search_path, method: 'get' do
+      = text_field_tag :search, params[:search]
+      = submit_tag 'Search'
+
+%table
+  %tr
+    %th Key
+    %th Name
+    %th Email
+    %th Subject
+    %th Issue
+    %th Status
+    %th Manager
+    %th
+    %th
+    %th
+
+  - @tickets.each do |ticket|
+    %tr
+      %td= ticket.key
+      %td= ticket.name
+      %td= ticket.email
+      %td= ticket.subject
+      %td= ticket.issue
+      %td= ticket.stats
+      %td= ticket.manager ? ticket.manager.login : ''
+      %td= link_to 'Show', ticket
+      %td= link_to 'Edit', edit_ticket_path(ticket)
+      %td= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Ticket', new_ticket_path
+-if @search
+  \|
+  = link_to 'Back', tickets_path

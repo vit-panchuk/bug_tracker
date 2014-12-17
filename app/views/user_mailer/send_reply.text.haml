@@ -1,0 +1,12 @@
+= @ticket.name + ','
+You sent us the issue ticket:
+= @ticket.subject
+= @ticket.issue
+= root_url + @ticket.key
+New Reply:
+= @reply.text
+Status:
+= @reply.stats
+Your tickets:
+= "#{root_url}email/#{@ticket.email}"
+We will send you an email notification if staff reply your ticket.

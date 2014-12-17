@@ -1,0 +1,52 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @ticket.name
+%p
+  %b Email:
+  = @ticket.email
+%p
+  %b Subject:
+  = @ticket.subject
+%p
+  %b Issue:
+  = @ticket.issue
+%p
+  %b Status:
+  = @ticket.stats
+
+= link_to 'Edit', edit_ticket_path(@ticket)
+
+-if @ticket.replies.any?
+  %h2 Replies
+  -@ticket.replies.each do |reply|
+    %p
+      %b Owner:
+      = reply.manager.login
+    %p
+      %b Status:
+      = reply.stats
+    %p
+      %b Text:
+      = reply.text
+    %br
+-if session[:manager_id]
+  %h2 Write reply
+  =form_for(@reply, url: reply_path) do |f|
+    -if @reply.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@reply.errors.count, "error")} prohibited this ticket from being saved:"
+        %ul
+          - @reply.errors.full_messages.each do |msg|
+            %li= msg
+    .hiddens
+      = f.hidden_field :ticket_id
+    .field
+      = f.label :stats, 'Status'
+      = f.select :stats, options_for_select(Ticket::STATS.values)
+    .field
+      = f.label :text
+      = f.text_area :text
+    .actions
+      = f.submit 'Save'

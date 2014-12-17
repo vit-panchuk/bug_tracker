@@ -1,0 +1,14 @@
+.login_form
+	-if flash[:alert]
+		%p#notice= flash[:alert]
+	= form_tag do
+		Login, please
+		%div
+			= label_tag :login, 'Login'
+			= text_field_tag :login, params[:login]
+		%div
+			= label_tag :password, 'Password'
+			= password_field_tag :password, params[:password]
+		%div
+			= submit_tag 'Login'
+.logout= link_to 'Logout', '', method: 'delete'

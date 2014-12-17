@@ -1,0 +1,9 @@
+= @ticket.name + ','
+You sent us the issue ticket:
+= @ticket.subject
+= @ticket.issue
+Please, follow this link to confirm your ticket (also you can check the reply following it):
+= root_url + @ticket.key
+Your tickets:
+= "#{root_url}email/#{@ticket.email}"
+We will send you an email notification if staff reply your ticket.
