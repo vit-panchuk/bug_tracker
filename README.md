@@ -12,7 +12,7 @@ You need to set your database settings in `/cofig/database.yml` and smtp.gmail s
 
 ### User Does
 
-Root dir is ticket adding form. User fills the form and receives a confirmation email. There are two links in the email: to a current issue ticket (E.G. `/AAA-000000`) and to all his issue tickets (E.G. `/email/em@i.l`). User follows first link and confims the issue ticket. The status of ticket changes on *'Waiting for Staff Response'*. Now, managers can see this ticket in *New Unassigned Tickets*.
+Root dir is a ticket adding form. User fills the form and receives a confirmation email. There are two links in the email: to a current issue ticket (E.G. `/AAA-000000`) and to all his issue tickets (E.G. `/email/em@i.l`). User follows first link and confims the issue ticket. The status of ticket changes on *Waiting for Staff Response*. Now, managers can see this ticket in *New Unassigned Tickets*.
 
 ### Manager Does
 
