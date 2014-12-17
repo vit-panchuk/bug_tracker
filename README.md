@@ -12,7 +12,7 @@ You need to set your database settings in `/cofig/database.yml` and smtp.gmail s
 
 ### User Does
 
-Root dir is ticket adding form. User fills the form and receives a confirmation email. There are two links in the email: to a current issue ticket (E.G. `/AAA-000000`) and to all his issue tickets (E.G. `/email/em@i.l`). User follows first link and confims the issue ticket. The status of ticket changes on *'Waiting for Staff Response'*. Now, managers can see this ticket.
+Root dir is ticket adding form. User fills the form and receives a confirmation email. There are two links in the email: to a current issue ticket (E.G. `/AAA-000000`) and to all his issue tickets (E.G. `/email/em@i.l`). User follows first link and confims the issue ticket. The status of ticket changes on *'Waiting for Staff Response'*. Now, managers can see this ticket in *New Unassigned Tickets*.
 
 ### Manager Does
 
@@ -27,4 +27,4 @@ Manager should login (`/login`). There are two records in database for managers:
   - password: `foo`
 
 After logining manager are redirected to `/ticket`. It is the main interface of managers. Manager may choose issue tickets using dropdown select or searching it by `key` or `subject`.
-*Show* links refer to pages with issue tickets and replies. Manager may wath replies and add another one using this link. If manager adds a reply, user's getting an email.
+*Show* links refer to pages with issue tickets and replies. Manager may wath replies and add another one using this link. Manager should choose the status of issue, also adding a reply meens he/she is taking ownership of this issue. If manager adds a reply, user's getting an email.
