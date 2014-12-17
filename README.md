@@ -19,11 +19,11 @@ Root dir is ticket adding form. User fills the form and receives a confirmation 
 Manager should login (`/login`). There are two records in database for managers:
 
 1.
-	* login: `foo`
-	* password: `bar`
+	- login: `foo`
+	- password: `bar`
 2.
-	* login: `bar`
-	* password: `foo`
+	- login: `bar`
+	- password: `foo`
 
 After logining manager are redirected to `/ticket`. It is the main interface of managers. Manager may choose issue tickets using dropdown select or searching it by `key` or `subject`.
 *Show* links refer to pages with issue tickets and replies. Manager may wath replies and add another one using this link. If manager adds a reply, user's getting an email.
